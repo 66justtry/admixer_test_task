@@ -40,15 +40,12 @@
                 case 2: color1 = 0; color2 = 1; break;
                 default: return -1;
             }
-
-            if (arr[color1] == 0 && arr[color2] == 0) //додаткових кольорів немає - всі їжаки мають потрібний колір
-                return 0;
+                
+            if (arr[color1] == arr[color2]) //кіл-сть їжаків кольору 1 == кіл-сть їжаків кольору 2 (не заданого кольору!) 
+                return arr[color1];
 
             if (arr[color_need] == 0 && (arr[color1] == 0 || arr[color2] == 0)) //всі їжаки маїть однаковий колір, але не той що потрібно
                 return -1;
-
-            if (arr[color1] == arr[color2]) //кіл-сть їжаків кольору 1 == кіл-сть їжаків кольору 2 (не заданого кольору!) 
-                return arr[color1];
 
             if ((Math.Abs(arr[color1] - arr[color2]) % 3) != 0) //якщо не виконується умова - перекрасити всіх їжаків неможливо
                 return -1;
